@@ -1,5 +1,7 @@
+const selector = ".tab-content";
+const targetLang = "ru";
+
 chrome.action.onClicked.addListener(async (tab) => {
-  // Выполняем скрипт на активной вкладке
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: getAndTranslateTabContent
@@ -7,21 +9,19 @@ chrome.action.onClicked.addListener(async (tab) => {
 });
 
 function getAndTranslateTabContent() {
-  const el = document.querySelector(".tab-content");
+  const el = document.querySelector(selector);
   if (!el) {
-    alert("Элемент .tab-content не найден на странице");
+    alert(`Block ${selector} not found on this page`);
     return;
   }
 
   const text = el.innerText.trim();
   if (!text) {
-    alert("В элементе .tab-content нет текста для перевода");
+    alert(`In block ${selector} no text found`);
     return;
   }
 
-  const url =
-    "https://translate.google.com/?sl=auto&tl=ru&text=" +
-    encodeURIComponent(text) +
-    "&op=translate";
+  const url = `https://translate.google.com/?sl=auto&tl=${targetLang}&text=` + 
+  `${encodeURIComponent(text)}&op=translate`;
   window.open(url, "_blank");
 }
