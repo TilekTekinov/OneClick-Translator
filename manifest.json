@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Page Translator",
+  "version": "1.0",
+  "description": "Авто перевод текста описания обьявления при клике на иконку",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_icon": "icons/icon128.png",
+    "default_title": "Перевести описание обьявления"
+  }
+}
