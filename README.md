@@ -1,6 +1,6 @@
 # **OneClick Translator**
 
-**Version:** 1.0 (MVP)  
+**Version:** 1.1 (Select block with mouse)  
 **Type:** Browser Extension  
 
 ---
@@ -17,38 +17,60 @@ When you click the extension icon, it automatically opens **Google Translate** i
 
 ---
 
-## **Features**
-- 🧩 **Manual configuration** — choose which text block or element to translate by editing the code.  
-- 🌐 **Accurate translation** — avoids incorrect translations caused by multilingual interfaces.  
-- ⚙️ **Customizable target language** — set your desired translation language directly in the code.  
-- ⚡ **One-click process** — no more highlight → copy → open translator → paste.  
-- 💡 **Lightweight and simple** — fast setup and minimal logic for easy customization.
+## Key Features
+
+- 🎯 **Smart Block Selection** - Select any content block on the webpage to add it to translation list
+- 📑 **Multiple Blocks Support** - Add multiple blocks from the same site, their content will be combined for translation
+- 🌍 **Per-Site Configuration** - Settings are saved individually for each website
+- ⚙️ **Flexible Settings** - Configure target language and manage content selectors through options page
+- 🔄 **One-Click Translation** - Opens Google Translate in new tab with selected content, no more highlight → copy → open translator → paste.
+- 🎛️ **Visual Management** - Edit, remove or add new content selectors through user interface
 
 ---
 
 ## **How It Works**
-1. Define the HTML block (element) you want to translate inside the code.  
-2. Set your target translation language (e.g., `en`, `ru`, `de`, `cs`).  
-3. When you click the extension icon, the script extracts text from the specified block.  
-4. It automatically opens a new tab with **Google Translate**, showing the translated version of that text.
+
+1. **Adding Content Blocks:**
+   - Right-click on context-menue
+   - Choose "Add block for auto-translation"
+   - Click on the content block you want to translate
+   - Block is saved for this website
+
+2. **Using Translation:**
+   - Click extension icon
+   - New tab opens with Google Translate
+   - Content from all saved blocks is combined and translated
+   - Translation is shown in your target language
+
+3. **Managing Settings:**
+   - Right-click extension icon → Options
+   - Change target language (default is Russian)
+   - View and manage saved websites and their content selectors
+   - Edit or add new selectors manually
 
 ---
 
 ## **Installation**
-1. Clone or download this repository.  
-2. Open your browser (e.g., **Chrome**) and go to: **chrome://extensions/**
-3. Turn on **Developer Mode** (top-right corner).  
-4. Click **“Load unpacked”** and select the project folder.  
-5. The extension will appear in your browser toolbar.
+
+1. Clone or download this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer Mode" (top-right corner)
+4. Click "Load unpacked" and select project folder
+5. Extension icon will appear in browser toolbar
 
 ---
 
-## **Configuration**
-1. Open the file `js/background.js`.  
-2. Find the section where the **target selector** and **language** are defined:  
-```js
-const selector = "#content"; // HTML block to translate
-const targetLang = "en";     // Target translation language
-```
-3. Change these values to match your needs.
-4. Save the file and reload the extension on the Extensions page.
+## Configuration
+
+All settings are managed through the Options page:
+- **Target Language:** Choose language for translation (default: ru)
+- **Website Settings:** View and manage saved websites
+- **Content Selectors:** Edit, remove or add new selectors
+- **Manual Input:** Add new selectors directly through options interface
+
+## Usage Tips
+
+- You can add multiple content blocks on the same page
+- Use Options page to edit incorrect selectors
+- Remove unused websites or selectors through Options
+- Target language can be changed at any time
